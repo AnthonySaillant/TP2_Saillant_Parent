@@ -9,7 +9,6 @@ use App\Models\Film;
 
 class FilmController extends Controller
 {   
-
     
 }
 
