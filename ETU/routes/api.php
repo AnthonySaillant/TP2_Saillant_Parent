@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 
 
 //Routes du TP2 ici : 
-Route::get('/films', 'App\Http\Controllers\FilmController@index');
+Route::post('/film', 'App\Http\Controllers\FilmController@create');
 
 Route::middleware('throttle:5,1')->group( function(){ 
     Route::post('/signin', 'App\Http\Controllers\AuthController@login');
