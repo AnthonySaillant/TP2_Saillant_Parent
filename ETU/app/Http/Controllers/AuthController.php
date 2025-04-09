@@ -48,7 +48,8 @@ class AuthController extends Controller
             'first_name' => ['required'],
         ]);
 
-        $validated['password'] = bcrypt($validated['password']);
+        $validate['password'] = bcrypt($validate['password']);
+        
 
         $user = User::create($validate);
 
