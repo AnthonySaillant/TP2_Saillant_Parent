@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Repository\Eloquent\FilmRepository;
+use App\Repository\FilmRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {

@@ -21,7 +21,9 @@ class FilmController extends Controller
     {
         try
         {
-            return FilmResource::collection($this->filmRepository->create($request->all()))->response()->setStatusCode(OK);
+            return (new FilmResource($this->filmRepository->create($request->all())))
+            ->response()
+            ->setStatusCode(CREATED);
         }
         
         catch(Exception $ex)
