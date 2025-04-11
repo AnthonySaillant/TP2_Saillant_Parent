@@ -67,7 +67,10 @@ class FilmController extends Controller
             $this->filmRepository->delete($id);
             return response()->noContent();
         } catch (\Exception $ex) {
-            abort(500, 'Server error');
+            return response()->json([ //chat GPT pour voir message de lexception
+                'error' => 'Server error',
+                'message' => $ex->getMessage()
+            ], 500);
         }
     }
 }
