@@ -11,9 +11,9 @@ Route::get('/user', function (Request $request) {
 
 
 //Routes du TP2 ici : 
-Route::post('/film', 'App\Http\Controllers\FilmController@create');
-Route::put('/films/{id}', 'App\Http\Controllers\FilmController@update');
-Route::delete('/films/{id}', 'App\Http\Controllers\FilmController@delete');
+Route::post('/film', 'App\Http\Controllers\FilmController@create')->middleware('auth:sanctum')->middleware(IsAdmin::class);
+Route::put('/films/{id}', 'App\Http\Controllers\FilmController@update')->middleware('auth:sanctum')->middleware(IsAdmin::class);
+Route::delete('/films/{id}', 'App\Http\Controllers\FilmController@delete')->middleware('auth:sanctum')->middleware(IsAdmin::class);
 
 Route::middleware('throttle:5,1')->group( function(){ 
     Route::post('/signin', 'App\Http\Controllers\AuthController@login');
