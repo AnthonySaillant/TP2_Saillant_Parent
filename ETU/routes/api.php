@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\IsAdmin;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -10,7 +11,7 @@ Route::get('/user', function (Request $request) {
 
 
 //Routes du TP2 ici : 
-Route::post('/film', 'App\Http\Controllers\FilmController@create');
+Route::post('/film', 'App\Http\Controllers\FilmController@create')->middleware('auth:sanctum')->middleware(IsAdmin::class);
 
 Route::middleware('throttle:5,1')->group( function(){ 
     Route::post('/signin', 'App\Http\Controllers\AuthController@login');
