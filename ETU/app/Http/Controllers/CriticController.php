@@ -19,6 +19,7 @@ class CriticController extends Controller
 
     public function create(Request $request)
     {
+        //Il faut prendre le user avec auth et l'associer a la critique (request) chibronx
         try
         {
             return (new CriticResource($this->criticRepository->create($request->all())))
@@ -34,5 +35,4 @@ class CriticController extends Controller
             ], 500);
         }
     }
-
 }
