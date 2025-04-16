@@ -18,7 +18,7 @@ class OneCriticPerFilmPerUser
         $user = auth()->user();
         $filmId = $request->input('film_id');
 
-        $exists = Critique::where('user_id', $user->id)
+        $exists = Critic::where('user_id', $user->id)
                           ->where('film_id', $filmId)
                           ->exists();
 
