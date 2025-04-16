@@ -19,6 +19,8 @@ Route::put('/films/{id}', 'App\Http\Controllers\FilmController@update')->middlew
 Route::delete('/films/{id}', 'App\Http\Controllers\FilmController@delete')->middleware('auth:sanctum')->middleware(IsAdmin::class);
 Route::post('/critic', 'App\Http\Controllers\CriticController@create')->middleware('auth:sanctum')->middleware(OneCriticPerFilmPerUser::class);
 Route::get('/user/{id}', 'App\Http\Controllers\UserController@show')->middleware('auth:sanctum')->middleware(ShowUserIfAuthUser::class);
+Route::put('/user/{id}', 'App\Http\Controllers\UserController@update')->middleware('auth:sanctum')->middleware(ShowUserIfAuthUser::class);
+
 
 Route::middleware('throttle:5,1')->group( function(){ 
     Route::post('/signin', 'App\Http\Controllers\AuthController@login');

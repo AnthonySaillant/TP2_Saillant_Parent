@@ -32,4 +32,24 @@ class UserController extends Controller
             abort(SERVER_ERROR, 'Server error');
         }     
     }
+
+    public function update(int $id, Request $request){
+        try
+        {
+            $user = User::findOrFail($id);
+    
+            $validated = $request->validate([
+                'password' => 'required|string|max:255',
+            ]);
+    
+            return (new UserResource($this->userRepository->update($id, $validated)))
+            ->response()
+            ->setStatusCode(OK);
+        }
+
+        catch(Exception $ex)
+        {
+            abort(SERVOR_ERROR, 'server error');
+        }
+    }
 }
