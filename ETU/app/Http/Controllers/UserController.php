@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         try
         {
-            $id = $request->input('id');
+            $id = $request->route('id');
             return (new UserResource($this->userRepository->getById($id)))
             ->response()
             ->setStatusCode(OK);

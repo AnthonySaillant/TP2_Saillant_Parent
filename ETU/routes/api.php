@@ -6,9 +6,10 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\OneCriticPerFilmPerUser;
 use App\Http\Middleware\ShowUserIfAuthUser;
 
-Route::get('/user', function (Request $request) {
+/*Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+*/
 
 
 

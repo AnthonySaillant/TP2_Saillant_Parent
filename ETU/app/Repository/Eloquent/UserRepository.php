@@ -2,13 +2,13 @@
 
 namespace App\Repository\Eloquent;
 
-use App\Repository\FilmRepositoryInterface;
+use App\Repository\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Film;
+use App\Models\User;
 use App\Repository\Eloquent\BaseRepository;
 
 
-class UserRepository extends BaseRepository implements FilmRepositoryInterface
+class UserRepository extends BaseRepository implements UserRepositoryInterface
 
 {
     public function __construct()
