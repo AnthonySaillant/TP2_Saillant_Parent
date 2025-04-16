@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\OneCriticPerFilmPerUser;
-use App\Http\Middleware\ShowUserIfAuthUser;
+use App\Http\Middleware\OwnsUser;
 
 /*Route::get('/user', function (Request $request) {
     return $request->user();
@@ -18,8 +18,8 @@ Route::post('/film', 'App\Http\Controllers\FilmController@create')->middleware('
 Route::put('/films/{id}', 'App\Http\Controllers\FilmController@update')->middleware('auth:sanctum')->middleware(IsAdmin::class);
 Route::delete('/films/{id}', 'App\Http\Controllers\FilmController@delete')->middleware('auth:sanctum')->middleware(IsAdmin::class);
 Route::post('/critic', 'App\Http\Controllers\CriticController@create')->middleware('auth:sanctum')->middleware(OneCriticPerFilmPerUser::class);
-Route::get('/user/{id}', 'App\Http\Controllers\UserController@show')->middleware('auth:sanctum')->middleware(ShowUserIfAuthUser::class);
-Route::put('/user/{id}', 'App\Http\Controllers\UserController@update')->middleware('auth:sanctum')->middleware(ShowUserIfAuthUser::class);
+Route::get('/user/{id}', 'App\Http\Controllers\UserController@show')->middleware('auth:sanctum')->middleware(OwnsUser::class);
+Route::put('/user/{id}', 'App\Http\Controllers\UserController@update')->middleware('auth:sanctum')->middleware(OwnsUser::class);
 
 
 Route::middleware('throttle:5,1')->group( function(){ 
