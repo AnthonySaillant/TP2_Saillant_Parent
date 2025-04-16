@@ -16,7 +16,7 @@ class CriticRepository extends BaseRepository implements CriticRepositoryInterfa
         parent::__construct(Critic::class);
     }
 
-    public function create(array $attributes) 
+    public function create(array $attributes): Model
     {
         $user = auth()->user();
         $attributes['user_id'] = $user->id;
