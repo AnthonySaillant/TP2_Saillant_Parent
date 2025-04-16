@@ -7,6 +7,8 @@ use App\Repository\Eloquent\FilmRepository;
 use App\Repository\FilmRepositoryInterface;
 use App\Repository\Eloquent\CriticRepository;
 use App\Repository\CriticRepositoryInterface;
+use App\Repository\Eloquent\UserRepository;
+use App\Repository\UserRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(FilmRepositoryInterface::class, FilmRepository::class);
         $this->app->bind(CriticRepositoryInterface::class, CriticRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
     }
 
     /**
